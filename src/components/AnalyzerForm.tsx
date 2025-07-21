@@ -48,7 +48,7 @@ export const AnalyzerForm: React.FC = () => {
       {/* Header */}
       <div className="text-center space-y-4">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-          What's Wrong in This?
+          What the Bug??
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           Paste your text or code below, and Google Gemini AI will detect issues, 

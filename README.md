@@ -1,4 +1,4 @@
-# What's Wrong in This? Analyzer
+# What the Bug?? Analyzer
 
 A beautiful, production-ready web application that uses Google Gemini AI to analyze text and code for errors, providing detailed explanations and corrected versions.
 
