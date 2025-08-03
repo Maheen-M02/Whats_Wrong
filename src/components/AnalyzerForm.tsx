@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Search, AlertCircle } from 'lucide-react';
+import { useAuth } from '../hooks/useAuth';
 import { ToggleSwitch } from './ToggleSwitch';
 import { LoadingSpinner } from './LoadingSpinner';
 import { ResultSection } from './ResultSection';
@@ -12,6 +13,7 @@ export const AnalyzerForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<AnalyzerResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const { user } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,7 +31,7 @@ export const AnalyzerForm: React.FC = () => {
       const response = await analyzeContent({
         content: content.trim(),
         type: contentType
-      });
+      }, user?.id);
       setResult(response);
     } catch (err) {
       const apiError = err as ApiError;
@@ -46,14 +48,21 @@ export const AnalyzerForm: React.FC = () => {
   return (
     <div className="max-w-6xl mx-auto p-6 space-y-8">
       {/* Header */}
-      <div className="text-center space-y-4">
+      <div className="text-center space-y-4 pt-8">
         <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-          What the Bug??
+          AI-Powered Analysis
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           Paste your text or code below, and Google Gemini AI will detect issues, 
           explain what's wrong, and provide you with a corrected version.
         </p>
+        {!user && (
+          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 max-w-md mx-auto">
+            <p className="text-sm text-blue-700 dark:text-blue-300">
+              Sign in to save your analysis history and access it anytime!
+            </p>
+          </div>
+        )}
       </div>
 
       <div className="grid lg:grid-cols-2 gap-8">
