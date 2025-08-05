@@ -101,6 +101,7 @@ export const analyzeWithGemini = async (request: AnalyzerRequest): Promise<Analy
         throw new Error('Gemini AI model is currently overloaded. Please try again in a few moments.');
       } else if (error.message.includes('503')) {
         throw new Error('Gemini AI model is currently overloaded. Please try again in a few moments.');
+      }
       if (error.message.includes('API_KEY_INVALID')) {
         throw new Error('Invalid Gemini API key. Please check your API key configuration.');
       } else if (error.message.includes('QUOTA_EXCEEDED')) {
