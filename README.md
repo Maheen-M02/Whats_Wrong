@@ -2,6 +2,8 @@
 
 A beautiful, production-ready web application that uses Google Gemini AI to analyze text and code for errors, providing detailed explanations and corrected versions.
 
+Check out -> https://whatthebug.netlify.app/
+
 ## Features
 
 - **AI-Powered Analysis**: Uses Google Gemini 1.5 Flash for intelligent error detection
