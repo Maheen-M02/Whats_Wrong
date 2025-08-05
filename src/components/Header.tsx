@@ -21,7 +21,7 @@ export const Header: React.FC<HeaderProps> = ({ onShowHistory }) => {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-              What the Bug??
+              Fixify
             </h1>
             <p className="text-sm text-gray-600 dark:text-gray-400">
               AI-powered code and text analyzer
